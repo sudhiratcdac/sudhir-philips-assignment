@@ -14,7 +14,7 @@ namespace Philips.GDC.Test
         }
 
         [TestMethod]
-        public void XmlProcessor_Process_Level0_Success()
+        public void XmlProcessor_Process_Level0_Success_Test()
         {
             processor.OnProcessComplete += XmlProcessor_Process_Level0_Success_OnProcessCompleteHandler;
 
@@ -33,7 +33,7 @@ namespace Philips.GDC.Test
         }
 
         [TestMethod]
-        public void XmlProcessor_Process_Level1_Name_With_Value_Success()
+        public void XmlProcessor_Process_Level1_Name_With_Value_Success_Test()
         {
             processor.OnProcessComplete += XmlProcessor_Process_Level1_Name_With_Value_Success_OnProcessCompleteHandler;
             var level0Node = new NodeInput
@@ -64,7 +64,7 @@ namespace Philips.GDC.Test
         }
 
         [TestMethod]
-        public void XmlProcessor_Process_Level1_Name_Without_Value_Success()
+        public void XmlProcessor_Process_Level1_Name_Without_Value_Success_Test()
         {
             processor.OnProcessComplete += XmlProcessor_Process_Level1_Name_Without_Value_Success_OnProcessCompleteHandler;
             var level0Node = new NodeInput
@@ -95,7 +95,7 @@ namespace Philips.GDC.Test
         }
 
         [TestMethod]
-        public void XmlProcessor_Process_Level2_Success()
+        public void XmlProcessor_Process_Level2_Success_Test()
         {
             processor.OnProcessComplete += XmlProcessor_Process_Level2_Success_OnProcessCompleteHandler;
             var level0Node = new NodeInput

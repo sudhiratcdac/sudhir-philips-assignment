@@ -106,7 +106,11 @@ namespace Philips.GDC.Lexical
         {
             AddChildNodes(e);
             if (OnComplete != null && _currentDocIndex >= _totalNodeCount)
+            {
+                _currentDocIndex = 0;
+                _totalNodeCount = 0;
                 OnComplete(null, new NodeToXmlArgs(null, _rootDocElement));
+            }
             _xmlProcessors.Enqueue((XmlProcessor)sender);
         }
 

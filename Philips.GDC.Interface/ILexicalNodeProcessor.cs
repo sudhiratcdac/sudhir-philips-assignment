@@ -16,6 +16,6 @@ namespace Philips.GDC.Interface
         /// IsValid: If the node is well formed or not. 
         /// Node: Node created from the source node string
         /// </returns>
-        (bool IsValid, NodeInput Node) AnalyzeAndCreateNode(string node, ref NodeInput previousNode);
+        (bool IsValid, NodeInput Node) AnalyzeAndCreateNode(string node, NodeInput previousNode);
     }
 }

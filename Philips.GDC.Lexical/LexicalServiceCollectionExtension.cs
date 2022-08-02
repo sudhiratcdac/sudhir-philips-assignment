@@ -1,8 +1,11 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Philips.GDC.Interface;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Philips.GDC.Lexical
 {
+    [ExcludeFromCodeCoverage]
+
     /// <summary>
     /// Responsible for injecting classes for the service
     /// </summary>
