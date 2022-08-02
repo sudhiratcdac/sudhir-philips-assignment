@@ -55,7 +55,8 @@ Presumptions taken:
 		-		  1 SEX M
 		-	Enter file path (Exit to terminate the application):
 		-	info: Philips.GDC.Lexical.TextFileProcessor[0]
-		-		  Writing following content to xml file: <gedcom>
+		-		  Writing following content to xml file: 
+		-		<gedcom>
 		-			<indi id="@I1@">
 		-			  <name value="Sudhir /Kumar/">
 		-				<surn>Kumar</surn>
@@ -63,6 +64,6 @@ Presumptions taken:
 		-			  </name>
 		-			  <sex>M</sex>
 		-			</indi>
-		-		  </gedcom>
-	-	You can also run the application by downloading artifacts from 
+		-		</gedcom>
+	-	You can also run the application by downloading artifacts and running "Philips.GDC.Console.exe" 
 		
