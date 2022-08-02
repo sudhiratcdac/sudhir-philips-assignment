@@ -36,32 +36,33 @@ Presumptions taken:
 	-	When you run the application, you would asked to provide filePath (To exist application simply enter Exit) as shown below:
 			Enter file path (Exit to terminate the application):
 	-	Once after entering the filePath and pressing the enter would give you the following pattern of output
-			Enter file path (Exit to terminate the application):
-			D:\POC\Files\test1.txt
-			info: Philips.GDC.Lexical.LexicalController[0]
-				  Processing file: D:\POC\Files\test1.txt
-			info: Philips.GDC.Lexical.LexicalController[0]
-				  0 @I1@ INDI
-			info: Philips.GDC.Lexical.LexicalController[0]
-			info: Philips.GDC.Lexical.LexicalController[0]
-				  1 NAME Sudhir /Kumar/
-			info: Philips.GDC.Lexical.LexicalController[0]
-			info: Philips.GDC.Lexical.LexicalController[0]
-			info: Philips.GDC.Lexical.LexicalController[0]
-				  2 SURN Kumar
-			info: Philips.GDC.Lexical.LexicalController[0]
-				  2 GIVN Sudhir
-			info: Philips.GDC.Lexical.LexicalController[0]
-				  1 SEX M
-			Enter file path (Exit to terminate the application):
-			info: Philips.GDC.Lexical.TextFileProcessor[0]
-				  Writing following content to xml file: <gedcom>
-					<indi id="@I1@">
-					  <name value="Sudhir /Kumar/">
-						<surn>Kumar</surn>
-						<givn>Sudhir</givn>
-					  </name>
-					  <sex>M</sex>
-					</indi>
-				  </gedcom>
+		-	Enter file path (Exit to terminate the application):
+		-	D:\POC\Files\test1.txt
+		-	info: Philips.GDC.Lexical.LexicalController[0]
+		-		  Processing file: D:\POC\Files\test1.txt
+		-	info: Philips.GDC.Lexical.LexicalController[0]
+		-		  0 @I1@ INDI
+		-	info: Philips.GDC.Lexical.LexicalController[0]
+		-	info: Philips.GDC.Lexical.LexicalController[0]
+		-		  1 NAME Sudhir /Kumar/
+		-	info: Philips.GDC.Lexical.LexicalController[0]
+		-	info: Philips.GDC.Lexical.LexicalController[0]
+		-	info: Philips.GDC.Lexical.LexicalController[0]
+		-		  2 SURN Kumar
+		-	info: Philips.GDC.Lexical.LexicalController[0]
+		-		  2 GIVN Sudhir
+		-	info: Philips.GDC.Lexical.LexicalController[0]
+		-		  1 SEX M
+		-	Enter file path (Exit to terminate the application):
+		-	info: Philips.GDC.Lexical.TextFileProcessor[0]
+		-		  Writing following content to xml file: <gedcom>
+		-			<indi id="@I1@">
+		-			  <name value="Sudhir /Kumar/">
+		-				<surn>Kumar</surn>
+		-				<givn>Sudhir</givn>
+		-			  </name>
+		-			  <sex>M</sex>
+		-			</indi>
+		-		  </gedcom>
+	-	You can also run the application by downloading artifacts from 
 		
