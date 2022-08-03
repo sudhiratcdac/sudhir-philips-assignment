@@ -1,6 +1,6 @@
 # sudhir-philips-assignment
 
-Build Status: ![Build Status](https://github.com/sudhiratcdac/sudhir-philips-assignment/actions/workflows/main.yml/badge.svg)
+![Build Status](https://github.com/sudhiratcdac/sudhir-philips-assignment/actions/workflows/main.yml/badge.svg)
 
 Analyse text line by line and create an xml document based on the rules.
 
