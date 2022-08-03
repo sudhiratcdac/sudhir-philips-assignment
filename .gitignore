@@ -67,3 +67,4 @@ project.fragment.lock.json
 
 /.vs
 /Philips.GDC.Console/Properties/PublishProfiles/FolderProfile.pubxml
+/.github/workflows/.vs

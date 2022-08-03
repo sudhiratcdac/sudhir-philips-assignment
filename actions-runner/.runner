@@ -1,0 +1,9 @@
+﻿{
+  "agentId": 2,
+  "agentName": "win11-github-philips",
+  "poolId": 1,
+  "poolName": "Default",
+  "serverUrl": "https://pipelines.actions.githubusercontent.com/SJadi3VFxY9Mfm5qvFt1LC9afpxGtOaqxhxqqpk0PucZUkxfT3",
+  "gitHubUrl": "https://github.com/sudhiratcdac/sudhir-philips-assignment",
+  "workFolder": "_work"
+}
