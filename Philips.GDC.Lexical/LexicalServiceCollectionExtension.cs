@@ -1,8 +1,11 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Philips.GDC.Interface;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Philips.GDC.Lexical
 {
+    [ExcludeFromCodeCoverage]
+
     /// <summary>
     /// Responsible for injecting classes for the service
     /// </summary>
@@ -14,7 +17,8 @@ namespace Philips.GDC.Lexical
         /// <param name="services"></param>
         public static void AddLexcialParserServices(this IServiceCollection services)
         {
-            services.AddTransient<IFileProcessor, TextFileProcessor>();
+            services.AddTransient<IFileProcessor, StringProcessor>();
+            //services.AddTransient<IFileProcessor, TextFileProcessor>();
             services.AddTransient<ILexicalNodeProcessor, LexicalNodeProcessor>();
             services.AddTransient<ILexicalController, LexicalController>();
             services.AddTransient<IGcdNodeCreator, GcdNodeCreator>();

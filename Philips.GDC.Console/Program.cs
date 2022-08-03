@@ -29,13 +29,10 @@ static void Start(IServiceProvider service)
 {
     string filePath;
     var lexicalAnalyzer = service.GetService<ILexicalController>();
-    do
-    {
-        Console.WriteLine($"Enter file path (Exit to terminate the application): ");
-        filePath = Console.ReadLine();
-        lexicalAnalyzer.Parse(filePath).ConfigureAwait(false).GetAwaiter().GetResult();
-    }
-    while (!filePath.Equals("exit", StringComparison.InvariantCultureIgnoreCase));
+    Console.WriteLine($"Enter file path (Exit to terminate the application): ");
+    filePath = Console.In.ReadToEnd();
+    lexicalAnalyzer.Parse(filePath).ConfigureAwait(false).GetAwaiter().GetResult();
+    Console.ReadKey();
 }
 
 

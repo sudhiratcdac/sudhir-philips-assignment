@@ -12,15 +12,12 @@ namespace Philips.GDC.Lexical
         public async Task<XElement> Process(NodeInput node)
         {
             XElement rootNode = null;
-            await Task.Run(() =>
+            rootNode = CreateNode(node);
+            if (OnProcessComplete != null)
             {
-                rootNode = CreateNode(node);
-                if (OnProcessComplete != null)
-                {
-                    OnProcessComplete(this, new NodeToXmlArgs(node, rootNode));
-                }
-            });
-            return rootNode;
+                OnProcessComplete(this, new NodeToXmlArgs(node, rootNode));
+            }
+            return await Task.FromResult(rootNode);
         }
 
         private XElement CreateNode(NodeInput node)

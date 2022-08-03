@@ -15,14 +15,16 @@
         /// <summary>
         /// Read file line by line and return the same as soon as it got read
         /// </summary>
+        /// <param name="filePath">Path of the file</param>
         /// <returns>IAsyncEnumerable with the line that has been read</returns>
-        IAsyncEnumerable<string> ReadLinesAsync();
+        IAsyncEnumerable<string> ReadLinesAsync(string filePath);
 
         /// <summary>
         /// Convert the path to XML and write content to it
         /// </summary>
+        /// <param name="filePath">Path of the file</param>
         /// <param name="content">XML content to be written to file</param>
         /// <returns></returns>
-        Task WriteAsync(string content);
+        Task WriteAsync(string filePath, string content);
     }
 }
