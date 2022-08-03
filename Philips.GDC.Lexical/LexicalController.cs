@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
 using Philips.GDC.Dto;
 using Philips.GDC.Interface;
+using System.Diagnostics;
 
 namespace Philips.GDC.Lexical
 {
@@ -26,30 +27,37 @@ namespace Philips.GDC.Lexical
             _gcdNodeCreator.OnComplete += GcDPubSub_OnProcessCompleteHandler;
         }
 
-        public async Task Parse(string filePath)
+        ///<inheritdoc/>
+        public async Task Parse(string sourceStringOrFilePath)
         {
-            _filePath = filePath;
-            var fileValidationResult = _fileProcessor.IsValidFile(filePath);
+            _filePath = sourceStringOrFilePath;
+            var fileValidationResult = _fileProcessor.IsValidFile(sourceStringOrFilePath);
             if (!fileValidationResult.IsValid)
             {
                 Console.WriteLine(fileValidationResult.ErrorMessage);
                 return;
             }
-            await ParseNodes(filePath);
+            await ParseNodes(sourceStringOrFilePath);
         }
 
-        private async Task ParseNodes(string filePath)
+        /// <summary>
+        /// Parse and create node
+        /// </summary>
+        /// <param name="sourceStringOrFilePath"></param>
+        /// <returns></returns>
+        private async Task ParseNodes(string sourceStringOrFilePath)
         {
-            _logger.LogInformation($"Processing file: {filePath}");
-            IAsyncEnumerator<string> nodeString = _fileProcessor.ReadLinesAsync(filePath).GetAsyncEnumerator();
+            _logger.LogInformation($"Processing file: {sourceStringOrFilePath}");
+            IAsyncEnumerator<string> nodeString = _fileProcessor.ReadLinesAsync(sourceStringOrFilePath).GetAsyncEnumerator();
             try
             {
+                Stopwatch sw = new Stopwatch();
                 uint nodeOrder = 0;
                 NodeInput previousNode = default;
                 NodeInput firstNode = null;
                 List<Task> nodeTasks = new List<Task>();
                 int nodeCounter = 0;
-
+                sw.Start();
                 nodeTasks.Add(_gcdNodeCreator.SetUpRootNode(new NodeInput { Level = 0, Name = _configuration.RootNodeName }));
                 List<string> invalidNodes = new List<string>();
                 while (await nodeString.MoveNextAsync())
@@ -79,10 +87,14 @@ namespace Philips.GDC.Lexical
 
                 }
                 _logger.LogInformation($"Total nodes found {nodeCounter}. Invalid nodes", string.Join(", ", invalidNodes.Select(x => x)));
-
-                nodeTasks.Add(_gcdNodeCreator.CreateSubTree(firstNode, true));
+                if (firstNode != null)
+                    nodeTasks.Add(_gcdNodeCreator.CreateSubTree(firstNode, true));
+                sw.Stop();
+                var ticksFileRead = sw.ElapsedMilliseconds;
+                sw.Restart();
                 await Task.WhenAll(nodeTasks);
-
+                sw.Stop();
+                _logger.LogInformation($"File read time: {ticksFileRead} miliseconds, Processing time {sw.ElapsedMilliseconds}");
             }
             catch (Exception ex)
             {
@@ -91,6 +103,11 @@ namespace Philips.GDC.Lexical
             finally { if (nodeString != null) await nodeString.DisposeAsync(); }
         }
 
+        /// <summary>
+        /// Handler when all the nodes and been formed 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void GcDPubSub_OnProcessCompleteHandler(object sender, NodeToXmlArgs e)
         {
             _fileProcessor.WriteAsync(_filePath, e.XmlValue);

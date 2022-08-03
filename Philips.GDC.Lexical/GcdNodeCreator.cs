@@ -52,7 +52,8 @@ namespace Philips.GDC.Lexical
 
             if (!_isProcessingStarted)
             {
-                _isProcessingStarted = true;
+                if (!isLastNode)
+                    _isProcessingStarted = true;
                 await Task.Run(() => CreateSubTree());
             }
             if (isLastNode)
@@ -64,22 +65,24 @@ namespace Philips.GDC.Lexical
         /// <summary>
         /// Create sub tree for the nodes added in queue using the processor responsible to create xml node
         /// </summary>
-        private async void CreateSubTree()
+        private async Task CreateSubTree()
         {
+            List<Task> tasks = new List<Task>();
             while (_isProcessingStarted || _nodes.Any())
             {
-                if (_xmlProcessors.Any())
+                while (_nodes.Any() && _xmlProcessors.Any())
                 {
                     if (_nodes.TryDequeue(out var nodeToProcess))
                     {
                         if (_xmlProcessors.TryDequeue(out var processor))
                         {
-                            await processor.Process(nodeToProcess);
+                            tasks.Add(processor.Process(nodeToProcess));
                         }
                     }
                 }
-                await Task.Delay(10);
+                await Task.Delay(1);
             }
+            await Task.WhenAll(tasks);
         }
 
         /// <summary>
@@ -105,10 +108,11 @@ namespace Philips.GDC.Lexical
         private void XmlProcessor_OnProcessCompleteHandler(object sender, NodeToXmlArgs e)
         {
             AddChildNodes(e);
-            if (OnComplete != null && _currentDocIndex >= _totalNodeCount)
+            if (OnComplete != null && !_isProcessingStarted && _currentDocIndex >= _totalNodeCount)
             {
                 _currentDocIndex = 0;
                 _totalNodeCount = 0;
+                _isProcessingStarted = false;
                 OnComplete(null, new NodeToXmlArgs(null, _rootDocElement));
             }
             _xmlProcessors.Enqueue((XmlProcessor)sender);
