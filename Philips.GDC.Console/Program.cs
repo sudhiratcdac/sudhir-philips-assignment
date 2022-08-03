@@ -29,7 +29,7 @@ static void Start(IServiceProvider service)
 {
     string filePath;
     var lexicalAnalyzer = service.GetService<ILexicalController>();
-    Console.WriteLine($"Enter file path (Exit to terminate the application): ");
+    Console.WriteLine($"Enter input nodes in string format: ");
     filePath = Console.In.ReadToEnd();
     lexicalAnalyzer.Parse(filePath).ConfigureAwait(false).GetAwaiter().GetResult();
     Console.ReadKey();
