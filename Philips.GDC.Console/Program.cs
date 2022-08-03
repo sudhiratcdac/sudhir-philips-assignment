@@ -33,6 +33,7 @@ static void Start(IServiceProvider service)
     filePath = Console.In.ReadToEnd();
     lexicalAnalyzer.Parse(filePath).ConfigureAwait(false).GetAwaiter().GetResult();
     Console.ReadKey();
+
 }
 
 
