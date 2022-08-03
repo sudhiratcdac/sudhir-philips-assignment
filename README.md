@@ -34,10 +34,16 @@ Presumptions taken:
 		
 -	Running application and expected output
 	-	When you run the application, you would asked to provide filePath (To exist application simply enter Exit) as shown below:
-			Enter file path (Exit to terminate the application):
+			Enter input nodes in string format:
 	-	Once after entering the filePath and pressing the enter would give you the following pattern of output
-		-	Enter file path (Exit to terminate the application):
-		-	D:\POC\Files\test1.txt
+		-	Enter input nodes in string format:
+		-	0 @I1@ INDI
+		-	1 NAME Sudhir /Kumar/
+		-	2 SURN Kumar
+		-	2 GIVN Sudhir
+		-	1 SEX M
+		-	Ctrl + Z, Enter
+
 		-	info: Philips.GDC.Lexical.LexicalController[0]
 		-		  Processing file: D:\POC\Files\test1.txt
 		-	info: Philips.GDC.Lexical.LexicalController[0]
