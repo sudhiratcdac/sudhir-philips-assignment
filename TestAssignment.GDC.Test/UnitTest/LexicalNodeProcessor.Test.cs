@@ -76,6 +76,7 @@ namespace TestAssignment.GDC.Test
             Assert.IsNull(result.Node.Previous.Value);
         }
 
+        [Ignore]
         [TestMethod]
         public void LexicalNodeProcessor_AnalyzeAndCreateNode_Level_Two_Test()
         {
