@@ -1,7 +1,8 @@
 ﻿using Microsoft.Extensions.Logging;
 using Moq;
-using TestAssignment.GDC.Interface;
+
 using TestAssignment.GDC.Lexical;
+using TTestAssignment.GDC.Lexical;
 
 namespace TestAssignment.GDC.Test
 {

@@ -1,5 +1,5 @@
 ﻿using Microsoft.Extensions.Configuration;
-using TestAssignment.GDC.Interface;
+
 
 namespace TestAssignment.GDC.Utilities
 {

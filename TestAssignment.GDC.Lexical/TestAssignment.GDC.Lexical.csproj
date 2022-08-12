@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -16,7 +16,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\TestAssignment.GDC.Dto\TestAssignment.GDC.Dto.csproj" />
-    <ProjectReference Include="..\TestAssignment.GDC.Interface\TestAssignment.GDC.Interface.csproj" />
+    <ProjectReference Include="..\TestAssignment.GDC.Utilities\TestAssignment.GDC.Utilities.csproj" />
   </ItemGroup>
 
 </Project>

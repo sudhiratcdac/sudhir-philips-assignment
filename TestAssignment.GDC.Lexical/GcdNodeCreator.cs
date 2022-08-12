@@ -1,7 +1,7 @@
 ﻿using System.Collections.Concurrent;
 using System.Xml.Linq;
 using TestAssignment.GDC.Dto;
-using TestAssignment.GDC.Interface;
+using TestAssignment.GDC.Utilities;
 
 namespace TestAssignment.GDC.Lexical
 {
