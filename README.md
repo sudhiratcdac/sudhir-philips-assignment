@@ -1,6 +1,6 @@
-# sudhir-philips-assignment
+# sudhir-test-assignment
 
-![Build Status](https://github.com/sudhiratcdac/sudhir-philips-assignment/actions/workflows/main.yml/badge.svg)
+![Build Status](https://github.com/sudhiratcdac/sudhir-test-assignment/actions/workflows/main.yml/badge.svg)
 
 Analyse text line by line and create an xml document based on the rules.
 
@@ -10,7 +10,7 @@ Presumptions taken:
 -	Only "0 @I0001@ INDI" has been considered for an Id cadidate and is rendered as <indi id="@I0001@">. "2 INDI @I0001@" has been considered as a normal element and would be rendered as <indi>@I0001@</indi>
 
 -	Application consists for following projects
-	-	Philips.GDC.Console
+	-	TestAssignment.GDC.Console
 		-	It works as starting point for the projects
 		-	appSettings.json contains the following keys, both are optional and is having a default value of "MaxXmlProcessor" :1 and "RootNodeName":"gedcom" respectively
 			{
@@ -20,23 +20,23 @@ Presumptions taken:
 		-	To run the application set this project as statup project.
 		-	Program.cs act a starting point for the application. All services are configured here along with dependecny injection.
 		
-	-	Philips.GDC.Dto
+	-	TestAssignment.GDC.Dto
 		-	Contains Dto and Enums for the project
 		
-	-	Philips.GDC.Interface
+	-	TestAssignment.GDC.Interface
 		-	Contains contracts for the project
 		
-	-	Philips.GDC.Lexical
+	-	TestAssignment.GDC.Lexical
 		-	Implements the various functionality of the project;
 		
-	-	Philips.GDC.Test
+	-	TestAssignment.GDC.Test
 		-	Contains unit test cases for the application
 		
-	-	Philips.GDC.Utilities
+	-	TestAssignment.GDC.Utilities
 		-	Contains common functionality such as configuration wrapper
 		
 -	Running application and expected output
-	-	When you run the application, you would asked to provide filePath (To exist application simply enter Exit) as shown below:
+	-	When you run the application, you would asked to provide input string (To exist application simply enter Exit) as shown below:
 			Enter input nodes in string format:
 	-	Once after entering the filePath and pressing the enter would give you the following pattern of output
 		-	Enter input nodes in string format:
@@ -47,23 +47,23 @@ Presumptions taken:
 		-	1 SEX M
 		-	Ctrl + Z, Enter
 
-		-	info: Philips.GDC.Lexical.LexicalController[0]
+		-	info: TestAssignment.GDC.Lexical.LexicalController[0]
 		-		  Processing file: D:\POC\Files\test1.txt
-		-	info: Philips.GDC.Lexical.LexicalController[0]
+		-	info: TestAssignment.GDC.Lexical.LexicalController[0]
 		-		  0 @I1@ INDI
-		-	info: Philips.GDC.Lexical.LexicalController[0]
-		-	info: Philips.GDC.Lexical.LexicalController[0]
+		-	info: TestAssignment.GDC.Lexical.LexicalController[0]
+		-	info: TestAssignment.GDC.Lexical.LexicalController[0]
 		-		  1 NAME Sudhir /Kumar/
-		-	info: Philips.GDC.Lexical.LexicalController[0]
-		-	info: Philips.GDC.Lexical.LexicalController[0]
-		-	info: Philips.GDC.Lexical.LexicalController[0]
+		-	info: TestAssignment.GDC.Lexical.LexicalController[0]
+		-	info: TestAssignment.GDC.Lexical.LexicalController[0]
+		-	info: TestAssignment.GDC.Lexical.LexicalController[0]
 		-		  2 SURN Kumar
-		-	info: Philips.GDC.Lexical.LexicalController[0]
+		-	info: TestAssignment.GDC.Lexical.LexicalController[0]
 		-		  2 GIVN Sudhir
-		-	info: Philips.GDC.Lexical.LexicalController[0]
+		-	info: TestAssignment.GDC.Lexical.LexicalController[0]
 		-		  1 SEX M
 		-	Enter file path (Exit to terminate the application):
-		-	info: Philips.GDC.Lexical.TextFileProcessor[0]
+		-	info: TestAssignment.GDC.Lexical.TextFileProcessor[0]
 		-		  Writing following content to xml file: 
 		-		<gedcom>
 		-			<indi id="@I1@">
@@ -74,5 +74,5 @@ Presumptions taken:
 		-			  <sex>M</sex>
 		-			</indi>
 		-		</gedcom>
-	-	You can also run the application by downloading artifacts and running "Philips.GDC.Console.exe" 
+	-	You can also run the application by downloading artifacts and running "TestAssignment.GDC.Console.exe" 
 		
