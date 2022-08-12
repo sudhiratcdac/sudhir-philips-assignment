@@ -150,17 +150,18 @@ namespace TestAssignment.GDC.Lexical
                 return default;
             }
             var value = splitString.Length == 3 ? splitString[2]?.Trim() : null;
-            var currentNode = new NodeInput
-            {
-                Level = level,
-                IsValid = true,
-                Name = splitString[1]?.Trim()?.ToLower(),
-                Value = value,
-                SourceString = node,
-                Previous = parentNode
-            };
-            parentNode.Childs.Add(currentNode);
-            return (true, currentNode);
+            //var currentNode = new NodeInput
+            //{
+            //    Level = level,
+            //    IsValid = true,
+            //    Name = splitString[1]?.Trim()?.ToLower(),
+            //    Value = value,
+            //    SourceString = node,
+            //    Previous = parentNode
+            //};
+            //parentNode.Childs.Add(currentNode);
+            previousNode?.Attributes.Add((splitString[1]?.Trim()?.ToLower(), value));
+            return (false, default);
         }
 
 
