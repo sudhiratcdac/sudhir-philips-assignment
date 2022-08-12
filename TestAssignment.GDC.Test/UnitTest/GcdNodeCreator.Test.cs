@@ -1,7 +1,8 @@
 ﻿using Moq;
 using TestAssignment.GDC.Dto;
-using TestAssignment.GDC.Interface;
+
 using TestAssignment.GDC.Lexical;
+using TestAssignment.GDC.Utilities;
 
 namespace TestAssignment.GDC.Test
 {

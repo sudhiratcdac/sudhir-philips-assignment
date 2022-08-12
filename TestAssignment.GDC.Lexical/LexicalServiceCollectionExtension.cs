@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using System.Diagnostics.CodeAnalysis;
-using TestAssignment.GDC.Interface;
+using TTestAssignment.GDC.Lexical;
 
 namespace TestAssignment.GDC.Lexical
 {
